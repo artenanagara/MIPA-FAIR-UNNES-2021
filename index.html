@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
+    <link rel="icon" href="./image/logo 1.png" type="image/icon type"><link rel="stylesheet" href="">
     <link rel="stylesheet" href="./css/style.css">
     <title>MIPA FAIR 2021</title>
 </head>
@@ -16,22 +17,72 @@
         </div>
         <h1>Loading..<span class="loading__blink">.</span></h1>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="content">
         <img class="planet--small" src="image/image 2.png" alt="">
         <img class="planet--big u-absolute-right u-absolute-right--top-big u-absolute-right--minus-medium" src="image/image 2.png" alt="">
         
 
+        <nav id="navbar" class="full-container navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./image/logo 1.png" alt="" width="189"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                        <a id="nav-sambutan" class="nav-link" href="#sambutan" onclick="goTo()">Sambutan</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li>
+                            <button class="btn btn-danger rounded-pill fs-1 p-3 px-4">Live Now</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+        </nav>
+
         <section class="banner vh-100">
-            
-
-
             <div class="banner__logo">
                 <img src="image/logo 1.png" alt="">
             </div>
-            
-            
         </section>
-        <h1>HAI</h1>
+        
+
+        <div class="section mt-5">
+            <section id="sambutan" class="sambutan row">
+                <div class="col-md-7 sambutan__text">
+                    <h1 class="heading-title mb-5">Sambutan Ketua Pelaksana</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, nesciunt tempora deserunt in voluptatibus aut error sint? Obcaecati, dolore eligendi tenetur blanditiis provident beatae error repellat tempore, iusto eos dicta! Saepe nulla cumque laudantium corporis dolorem sint fugit iste in dolore ea. Hic id officia animi culpa debitis! Illo vitae optio fugit iure minus, dicta eum commodi expedita veritatis autem blanditiis praesentium architecto illum nostrum similique voluptas excepturi obcaecati non molestias laborum deleniti recusandae. Quia inventore accusamus beatae, quibusdam dolore veniam numquam sapiente. Labore tempora sunt cupiditate deleniti. Quidem ad, quis rerum odit placeat ut, aliquam consequuntur voluptas corporis consequatur nostrum sint, explicabo magni excepturi accusamus reprehenderit commodi. Dolores laborum tempora tenetur nam eveniet similique neque, dignissimos eius odit culpa eligendi, laudantium id laboriosam hic, ea soluta totam est exercitationem quae unde? Neque velit nisi corporis odio, dolores tempore saepe laudantium animi provident doloribus ea illo eveniet. Voluptas iusto architecto a, quos nostrum impedit ab obcaecati, hic, laboriosam similique itaque laudantium velit vel numquam sapiente harum reprehenderit sint dolorum sed accusantium. Similique amet sint eaque esse fuga ratione, laudantium non. Tempora maxime atque corporis numquam ad quasi, officia animi autem accusamus dolorum rerum, ipsa provident modi, pariatur sapiente voluptas totam.</p>
+                </div>
+                <div class="col-md-5 sambutan__image d-flex justify-content-center">
+                    <img src="./image/image 2.png" alt="">
+                </div>
+            </section>
+
+        </div>
     </div>
 
     
@@ -42,8 +93,28 @@
 
 
 
+    
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        let sambutan = document.getElementById('sambutan');
+        let ySambutan = sambutan.offsetTop;
+        let navSambutan = document.getElementById('nav-sambutan');
+        function goTo(){
+            let sambutan = document.getElementById('sambutan');
+            let ySambutan = sambutan.offsetTop;
+            setTimeout(function(){
+                scrollTo(0,ySambutan-100);
+            }, 100)
+            
+        }
+
+        
+    </script>
 </body>
 </html>

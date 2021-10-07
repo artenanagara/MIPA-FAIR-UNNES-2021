@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Offside&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @keyframes spaceBackground {
   0% {
     background-position: left; }
@@ -41,6 +42,12 @@
   100% {
     opacity: 1; } }
 
+@keyframes move-in {
+  0% {
+    transform: scale(0, 0.025); }
+  50% {
+    transform: scale(1, 0.025); } }
+
 *,
 *::before,
 *::after {
@@ -49,10 +56,16 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   box-sizing: border-box; }
+
+.heading-title {
+  font-size: 5.6rem;
+  letter-spacing: 10px;
+  font-weight: 600; }
 
 .heading-primary {
   font-size: 10rem; }
@@ -65,6 +78,14 @@ body {
   .u-absolute-right--minus-medium {
     right: -15%; }
 
+.u-fullscreen-fixed {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7); }
+
 .banner {
   position: relative;
   overflow-x: hidden; }
@@ -73,7 +94,7 @@ body {
     display: inline-block;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.5);
     background-image: url("../image/logo 1.png"); }
 
 .planet--big {
@@ -84,12 +105,13 @@ body {
   border-radius: 50%;
   display: inline-block;
   transition: all;
-  animation: planetRotation-reverse 120s linear infinite;
-  top: 60%; }
+  animation: planetRotation-reverse 180s linear infinite;
+  top: 60%;
+  z-index: -1; }
 
 .planet--small {
   position: absolute;
-  top: -30rem;
+  top: -20rem;
   left: -15rem;
   width: 80rem;
   background-image: radial-gradient(#EDBAF5 0%, transparent 30%);
@@ -97,7 +119,7 @@ body {
   border-radius: 50%;
   display: inline-block;
   transition: all;
-  animation: planetRotation 50s linear infinite; }
+  animation: planetRotation 100s linear infinite; }
 
 .loading {
   position: fixed;
@@ -130,17 +152,169 @@ body {
   .loading__blink {
     animation: typing-blink .5s infinite; }
 
+.form-modal {
+  position: fixed;
+  width: 60vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  border-radius: 2rem;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden; }
+  .form-modal h1 {
+    font-size: 4rem; }
+  .form-modal__image {
+    background-image: url("../image/background-form.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; }
+    .form-modal__image img {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 15rem; }
+  .form-modal__form {
+    padding: 10rem 5rem;
+    position: relative; }
+    .form-modal__form input {
+      font-size: 2.5rem;
+      padding: 1rem 2rem;
+      border-radius: .5rem; }
+
+.button {
+  transition: all .3s ease-in-out;
+  padding: 2rem 5rem;
+  font-size: 2rem; }
+  .button:hover {
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.8);
+    transform: translateY(-0.5rem); }
+  .button:active {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+    transform: translateY(0); }
+  .button__exit {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 4rem;
+    color: #777;
+    text-decoration: none; }
+    .button__exit:hover {
+      color: #555; }
+  .button__submit {
+    margin-top: 2rem;
+    width: 100%;
+    font-size: 4rem;
+    padding: 2rem 0;
+    color: #fff;
+    border-radius: 1.5rem;
+    background: #162A4F; }
+
 body {
   font-family: 'Offside', cursive;
   background-color: #000;
   background-image: url("../image/space-dusk-background.png");
   color: #ffffff;
   overflow-x: hidden;
-  transition: all .5s ease;
-  animation: spaceBackground 40s linear infinite; }
+  background-size: 100%;
+  background-position: bottom;
+  background-blend-mode: hard-light; }
+
+nav#navbar {
+  font-size: 2rem;
+  padding: 3rem 5rem;
+  background-color: #03020D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 10001; }
+
+nav#navbar .navbar-nav {
+  margin-left: 45rem; }
+
+nav#navbar .navbar-nav li:not(:last-child) {
+  margin-right: 8rem; }
 
 .content.loaded {
   display: block; }
 
 .content {
   display: none; }
+
+.section {
+  opacity: 0; }
+
+.sambutan {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10rem 5rem;
+  font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 1s ease; }
+
+.sambutan__image img {
+  width: 300px; }
+
+.move-in {
+  animation: move-in 1s linear;
+  transform: scale(1, 1);
+  opacity: 1; }
+
+@media screen and (max-width: 900px) {
+  nav#navbar .navbar-nav {
+    margin: 0; } }
+
+.form {
+  width: 100vw;
+  height: 100vh; }
+  .form h1 {
+    font-size: 4rem;
+    letter-spacing: 1rem; }
+  .form__image {
+    background-image: url("../image/background-form.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; }
+    .form__image img {
+      position: absolute;
+      top: 50vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 15rem; }
+  .form__form {
+    padding: 5rem 20rem;
+    position: relative; }
+    .form__form label.button {
+      border: 5px solid #162A4F; }
+      .form__form label.button:hover {
+        transform: translateY(0);
+        box-shadow: none;
+        cursor: pointer; }
+    .form__form label.button:first-child {
+      border-radius: 10px 0 0 10px; }
+    .form__form label.button:last-child {
+      border-radius: 0 10px 10px 0; }
+    .form__form input {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      border-radius: .5rem; }
+    .form__form #umum:checked + div > label[for="umum"] {
+      background-color: #162A4F;
+      color: #fff; }
+    .form__form #fmipa:checked ~ div > label[for="fmipa"] {
+      background-color: #162A4F;
+      color: #fff; }
+    .form__form form#formUmum,
+    .form__form form#formFmipa {
+      transition: all .5s ease;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(50rem); }
+    .form__form #umum:checked ~ form#formUmum,
+    .form__form #fmipa:checked ~ form#formFmipa {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0); }
