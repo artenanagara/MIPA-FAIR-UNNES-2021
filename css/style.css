@@ -105,7 +105,6 @@ body {
   border-radius: 50%;
   display: inline-block;
   transition: all;
-  animation: planetRotation-reverse 180s linear infinite;
   top: 60%;
   z-index: -1; }
 
@@ -118,8 +117,7 @@ body {
   box-shadow: 0 0 10rem rgba(237, 186, 245, 0.5);
   border-radius: 50%;
   display: inline-block;
-  transition: all;
-  animation: planetRotation 100s linear infinite; }
+  transition: all; }
 
 .loading {
   position: fixed;
@@ -210,6 +208,26 @@ body {
     color: #fff;
     border-radius: 1.5rem;
     background: #162A4F; }
+  .button__secondary {
+    border-radius: 1rem;
+    padding: 1rem 4rem;
+    border: 2px solid #EBB03E; }
+    .button__secondary.active {
+      background-color: #EBB03E; }
+
+.grid {
+  width: 80%;
+  padding: 0 10rem;
+  display: grid;
+  grid-gap: 6.4rem;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  justify-content: space-between;
+  justify-items: center; }
+  .grid .item-grid {
+    background: #777;
+    width: 10rem;
+    height: 10rem;
+    border-radius: .5rem; }
 
 body {
   font-family: 'Offside', cursive;
@@ -261,13 +279,49 @@ nav#navbar .navbar-nav li:not(:last-child) {
   transform: scale(1, 1);
   opacity: 1; }
 
+.teaser {
+  margin: 20rem 0;
+  padding: 0 10rem; }
+
+#ukm div.d-flex {
+  width: 23%; }
+
+#ukm #ukm-radio:checked ~ div > label[for="ukm-radio"],
+#ukm #bso:checked ~ div > label[for="bso"],
+#ukm #lk:checked ~ div > label[for="lk"] {
+  background-color: #EBB03E; }
+
+#ukm input {
+  display: none; }
+
+#ukm .display-ukm {
+  margin: 10rem auto; }
+
+#ukm .display-ukm > .ukm,
+#ukm .display-ukm > .bso,
+#ukm .display-ukm > .lk {
+  transition: all .5s ease;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50rem); }
+
+#ukm #ukm-radio:checked ~ .display-ukm > .ukm,
+#ukm #bso:checked ~ .display-ukm > .bso,
+#ukm #lk:checked ~ .display-ukm > .lk {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); }
+
 @media screen and (max-width: 900px) {
   nav#navbar .navbar-nav {
     margin: 0; } }
 
 .form {
   width: 100vw;
-  height: 100vh; }
+  height: 100vh;
+  margin: 0; }
   .form h1 {
     font-size: 4rem;
     letter-spacing: 1rem; }
