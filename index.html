@@ -38,10 +38,10 @@
         <nav id="navbar" class="full-container navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="./image/logo 1.png" alt="" width="189"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler button__responsive" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                         <a id="nav-beranda" class="nav-link active" aria-current="page" href="index.html">Beranda</a>
@@ -50,16 +50,15 @@
                         <a id="nav-sambutan" class="nav-link" href="#sambutan" onclick="goTo()">Sambutan</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="form.html">Tentang Kami</a>
+                        <a id="nav-ukm" class="nav-link" href="#ukm" onclick="goTo3()">UKM</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li>
-                            <button class="btn btn-danger rounded-pill fs-1 p-3 px-4">Live Now</button>
+                            <a id="liveNow" href="#teaser" class="btn btn-danger button__live " onclick="goTo2()">Live Now</a>
                         </li>
                     </ul>
                 </div>
-                
                 
             </div>
         </nav>
@@ -98,7 +97,7 @@
                 <input type="radio" name="ukm" id="bso">
                 <input type="radio" name="ukm" id="lk">
                
-                <div class="d-flex justify-content-between mx-auto mt-5">
+                <div class="d-flex justify-content-center mx-auto mt-5">
                     <label class="button button__secondary" for="ukm-radio">UKM</label>
                     <label class="button button__secondary" for="bso">BSO</label>
                     <label class="button button__secondary" for="lk">LK</label>
@@ -214,9 +213,7 @@
     <script src="js/script.js"></script>
 
     <script>
-        let sambutan = document.getElementById('sambutan');
-        let ySambutan = sambutan.offsetTop;
-        let navSambutan = document.getElementById('nav-sambutan');
+
         function goTo(){
             let navSambutan = document.getElementById('nav-sambutan');
             let navBeranda = document.getElementById('nav-beranda');
@@ -231,7 +228,33 @@
         }
 
 
+        function goTo2(){
+            let navSambutan = document.getElementById('nav-sambutan');
+            let navBeranda = document.getElementById('nav-beranda');
+            let teaser = document.getElementById('teaser');
+            let yTeaser = teaser.offsetTop;
+            setTimeout(function(){
+                scrollTo(0,yTeaser-200);
+            }, 100)
+            navSambutan.classList.remove('active');
+            navBeranda.classList.remove('active')
+            
+        }
         
+        function goTo3(){
+            let navUkm = document.getElementById('nav-ukm');
+            const ukm = document.getElementById('ukm');
+            let navBeranda = document.getElementById('nav-beranda');
+            let navSambutan = document.getElementById('nav-sambutan');
+            let yUkm = ukm.offsetTop;
+            setTimeout(function(){
+                scrollTo(0,yUkm-200);
+            }, 100)
+            navSambutan.classList.remove('active');
+            navBeranda.classList.remove('active')
+            navUkm.classList.add('active')
+            
+        }
     </script>
 </body>
 </html>
