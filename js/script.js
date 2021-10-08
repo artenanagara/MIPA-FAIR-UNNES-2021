@@ -37,6 +37,6 @@ $(document).ready(function() {
        $('div.content').addClass('loaded');
         $('.loading').css('opacity', 0)
         $('.loading').css('visibility', 'hidden')
-    }, 300)
+    }, 3000)
 })
 
