@@ -28,7 +28,7 @@
                     <label class="button w-100" for="umum">UMUM</label>
                 </div>
                 
-                <form class="fs-2" method="POST" action="action.php" id="formUmum">
+                <form class="fs-2" method="POST" action="index.html" id="formUmum">
                     <div class="mb-4">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
@@ -42,11 +42,11 @@
                         <input type="text" class="form-control" maxlength="15" id="no-hp" name="no-hp" required>
                     </div>
                    
-                    <button type="submit" class="button button__submit" id="submit">Submit</button>
+                    <button type="submit" class="button button__submit" id="submit1">Submit</button>
                 </form>
 
 
-                <form class="fs-2" method="POST" action="action.php" id="formFmipa">
+                <form class="fs-2" method="POST" action="index.html" id="formFmipa">
                     <div class="mb-4">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
@@ -68,7 +68,7 @@
                         <input type="text" class="form-control" maxlength="15" id="no-hp" name="no-hp" required>
                     </div>
                    
-                    <button type="submit" class="button button__submit" id="submit">Submit</button>
+                    <button type="submit" class="button button__submit" id="submit2">Submit</button>
                 </form>
             </div>
         </div>
@@ -76,7 +76,11 @@
 
 
     <script>
-        const submit = document.getElementById('submit');
+        const submit = document.getElementById('submit1');
+        submit.addEventListener("click", function(){
+            document.location.href = "index.html"
+        })
+        const submit = document.getElementById('submit2');
         submit.addEventListener("click", function(){
             document.location.href = "index.html"
         })
